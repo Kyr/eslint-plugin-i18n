@@ -1,0 +1,37 @@
+{
+  "name": "@kyr/eslint-plugin-i18n",
+  "version": "0.0.1",
+  "description": "Plugin for eslint, that should reduce (for me) monkey job on implementing i18n for Contentmart",
+  "repository": "https://github.com/Kyr/eslint-plugin-i18n",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm run unit-test",
+    "unit-test": "istanbul cover --dir __reports__/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --reporter dot"
+  },
+  "author": "Kyrylo F. Fedorov",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.12.1",
+    "istanbul": "0.4.5",
+    "mocha": "^4.0.1"
+  },
+  "peerDependencies": {
+    "eslint": "^3.0.0 || ^4.0.0"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin",
+    "i18n",
+    "contentmart",
+    "cmi"
+  ]
+}
