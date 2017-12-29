@@ -22,7 +22,13 @@ ruleTester.run('translate-children-literals', rule, {
             code: '<App><Component /></App>'
         },
         {
-            code: '<Component><FormattedMessage	id="id" defaultMessage="translated message" description="description"/></Component>'
+            code: `<Component>
+<FormattedMessage
+    id="id"
+    defaultMessage="translated message"
+    description="description"
+/>
+</Component>`
         },
         {
             code: `<Component>
@@ -51,7 +57,10 @@ ruleTester.run('translate-children-literals', rule, {
                 <label htmlFor="">
                     <FormattedMessage id="lable" defaultMessage="Name"/>
                     <Tooltip>
-                        <FormattedMessage id="tooltip" defaultMessage="Please enter alphabets A-z, numbers 0-9, alphanumeric (combination of A-z & 0-9) or special characters (. , _ , -, &quot;, ’)" />
+                        <FormattedMessage
+                            id="tooltip"
+                             defaultMessage="Please enter alphabets A-z, numbers 0-9, alphanumeric (combination of A-z & 0-9) or special characters (. , _ , -, &quot;, ’)"
+                             />
                     </Tooltip>
                 </label>
                 <Input
@@ -67,19 +76,37 @@ ruleTester.run('translate-children-literals', rule, {
     invalid: [
         {
             code: '<div>Untranslated text</div>',
-            output: '<div><FormattedMessage id="TODO: update id" defaultMessage="Untranslated text" description="TODO: insert description"/></div>',
+            output: `<div>
+<FormattedMessage
+    id="TODO: update id"
+    defaultMessage="Untranslated text"
+    description="TODO: insert description"
+/>
+</div>`,
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
         {
             code: '<div className="should-not-trigger-rule">Untranslated text</div>',
-            output: '<div className="should-not-trigger-rule"><FormattedMessage id="TODO: update id" defaultMessage="Untranslated text" description="TODO: insert description"/></div>',
+            output: `<div className="should-not-trigger-rule">
+<FormattedMessage
+    id="TODO: update id"
+    defaultMessage="Untranslated text"
+    description="TODO: insert description"
+/>
+</div>`,
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
         {
             code: '<div><div>Untranslated text</div></div>',
-            output: '<div><div><FormattedMessage id="TODO: update id" defaultMessage="Untranslated text" description="TODO: insert description"/></div></div>',
+            output: `<div><div>
+<FormattedMessage
+    id="TODO: update id"
+    defaultMessage="Untranslated text"
+    description="TODO: insert description"
+/>
+</div></div>`,
             // options: [],
             errors: [{message: missingTranslationMessage}]
         }
