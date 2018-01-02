@@ -87,8 +87,7 @@ ruleTester.run('translate-children-literals', rule, {
             errors: [{message: missingTranslationMessage}]
         },
         {
-            code: `
-<div>
+            code: `<div>
     Untranslated text
 </div>`,
             output: `<div>
