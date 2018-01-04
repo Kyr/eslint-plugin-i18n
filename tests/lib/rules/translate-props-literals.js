@@ -28,7 +28,7 @@ ruleTester.run('translate-props-literals', rule, {
     invalid: [
         {
             code: '<input name="inputElement" placeholder="untranslated message" />',
-            output: '<input name="inputElement" placeholder={formatMessage(defineMessages({_: {id: "placeholder", defaultMessage: "untranslated message", description: "placeholder"}})._)} />',
+            output: '<input name="inputElement" placeholder={formatMessage(defineMessages({_: {id: "uuid.placeholder", defaultMessage: "untranslated message", description: "placeholder"}})._)} />',
             options: [{props: ['placeholder']}],
             errors: [{message: missingTranslationMessage}]
         }
