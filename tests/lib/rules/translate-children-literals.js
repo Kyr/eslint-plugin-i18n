@@ -23,20 +23,12 @@ ruleTester.run('translate-children-literals', rule, {
         },
         {
             code: `<Component>
-<FormattedMessage
-    id="id"
-    defaultMessage="translated message"
-    description="description"
-/>
+<FormattedMessage id="id" defaultMessage="translated message" description="description" />
 </Component>`
         },
         {
             code: `<Component>
-    <FormattedMessage
-        id="id"
-         defaultMessage="translated message"
-          description="description"
-          />
+    <FormattedMessage id="id" defaultMessage="translated message" description="description" />
          </Component>`
         },
         {
@@ -55,7 +47,7 @@ ruleTester.run('translate-children-literals', rule, {
             code: `
             <div className="controlGroup">
                 <label htmlFor="">
-                    <FormattedMessage id="lable" defaultMessage="Name"/>
+                    <FormattedMessage id="label" defaultMessage="Name"/>
                     <Tooltip>
                         <FormattedMessage
                             id="tooltip"
@@ -76,13 +68,7 @@ ruleTester.run('translate-children-literals', rule, {
     invalid: [
         {
             code: '<div>Untranslated text</div>',
-            output: `<div>
-<FormattedMessage
-    id="TODO: update id"
-    defaultMessage="Untranslated text"
-    description="TODO: insert description"
-/>
-</div>`,
+            output: '<div><FormattedMessage id="uuid" defaultMessage="Untranslated text" description="TODO: insert description" /></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
@@ -90,37 +76,19 @@ ruleTester.run('translate-children-literals', rule, {
             code: `<div>
     Untranslated text
 </div>`,
-            output: `<div>
-<FormattedMessage
-    id="TODO: update id"
-    defaultMessage="Untranslated text"
-    description="TODO: insert description"
-/>
-</div>`,
+            output: '<div><FormattedMessage id="uuid" defaultMessage="Untranslated text" description="TODO: insert description" /></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
         {
             code: '<div className="should-not-trigger-rule">Untranslated text</div>',
-            output: `<div className="should-not-trigger-rule">
-<FormattedMessage
-    id="TODO: update id"
-    defaultMessage="Untranslated text"
-    description="TODO: insert description"
-/>
-</div>`,
+            output: '<div className="should-not-trigger-rule"><FormattedMessage id="uuid" defaultMessage="Untranslated text" description="TODO: insert description" /></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
         {
             code: '<div><div>Untranslated text</div></div>',
-            output: `<div><div>
-<FormattedMessage
-    id="TODO: update id"
-    defaultMessage="Untranslated text"
-    description="TODO: insert description"
-/>
-</div></div>`,
+            output: '<div><div><FormattedMessage id="uuid" defaultMessage="Untranslated text" description="TODO: insert description" /></div></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         }
