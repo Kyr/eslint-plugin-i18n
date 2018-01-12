@@ -87,6 +87,15 @@ ruleTester.run('translate-children-literals', rule, {
             errors: [{message: missingTranslationMessage}]
         },
         {
+            code: `<div>
+    Untranslated text
+    with line break
+</div>`,
+            output: '<div><FormattedMessage id="uuid" defaultMessage={"Untranslated text\\nwith line break"} description="" /* TODO: insert description */ /></div>',
+            // options: [],
+            errors: [{message: missingTranslationMessage}]
+        },
+        {
             code: '<div className="should-not-trigger-rule">Untranslated text</div>',
             output: '<div className="should-not-trigger-rule"><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /* TODO: insert description */ /></div>',
             // options: [],
