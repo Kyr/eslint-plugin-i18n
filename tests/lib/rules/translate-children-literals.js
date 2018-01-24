@@ -68,13 +68,13 @@ ruleTester.run('translate-children-literals', rule, {
     invalid: [
         {
             code: '<div>"Quoted untranslated text"</div>',
-            output: '<div><FormattedMessage id="uuid" defaultMessage={"\\"Quoted untranslated text\\""} description="" /* TODO: insert description */ /></div>',
+            output: '<div><FormattedMessage id="uuid" defaultMessage={"\\"Quoted untranslated text\\""} description="" /></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
         {
             code: '<div>Untranslated text</div>',
-            output: '<div><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /* TODO: insert description */ /></div>',
+            output: '<div><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
@@ -82,19 +82,19 @@ ruleTester.run('translate-children-literals', rule, {
             code: `<div>
     Untranslated text
 </div>`,
-            output: '<div><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /* TODO: insert description */ /></div>',
+            output: '<div><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
         {
             code: '<div className="should-not-trigger-rule">Untranslated text</div>',
-            output: '<div className="should-not-trigger-rule"><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /* TODO: insert description */ /></div>',
+            output: '<div className="should-not-trigger-rule"><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         },
         {
             code: '<div><div>Untranslated text</div></div>',
-            output: '<div><div><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /* TODO: insert description */ /></div></div>',
+            output: '<div><div><FormattedMessage id="uuid" defaultMessage={"Untranslated text"} description="" /></div></div>',
             // options: [],
             errors: [{message: missingTranslationMessage}]
         }
