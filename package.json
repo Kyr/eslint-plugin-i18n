@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "NODE_ENV=test npm run unit-test",
-    "unit-test": "NODE_ENV=test istanbul cover --dir __reports__/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --reporter dot"
+    "unit-test": "NODE_ENV=test istanbul cover --dir __reports__/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --reporter dot",
+    "publish": "npm publish --access=public"
   },
   "author": "Kyrylo F. Fedorov",
   "license": "MIT",
